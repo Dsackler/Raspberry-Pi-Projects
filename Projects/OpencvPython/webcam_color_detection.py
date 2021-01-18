@@ -36,9 +36,9 @@ while True:
     mask = cv2.inRange(imgHSV, lower, upper)
 
     imgResult = cv2.bitwise_and(img, img, mask=mask)
-    HSVResult = cv2.bitwise_and(imgHSV, imgHSV, mask=mask) #I want a mask over the hsv as well
+    #HSVResult = cv2.bitwise_and(imgHSV, imgHSV, mask=mask) #I want a mask over the hsv as well
 
-    cv2.imshow("VidHSV", HSVResult)
+    #cv2.imshow("VidHSV", HSVResult)
     cv2.imshow("Mask", mask)
     cv2.imshow("image result", imgResult)
     if cv2.waitKey(1) & 0xFF == ord('q'):

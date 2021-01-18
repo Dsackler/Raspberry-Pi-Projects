@@ -9,10 +9,11 @@ cap.set(4,480)
 
 while True:
     success, img = cap.read()
-    imgGray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    img_rotate_180 = cv2.rotate(img, cv2.ROTATE_180)
+    imgGray = cv2.cvtColor(img_rotate_180 , cv2.COLOR_BGR2GRAY)
     faces = faceCascade.detectMultiScale(imgGray, 1.1, 4)
     for (x, y, w, h) in faces:
-        cv2.rectangle(img, (x, y), (x + w, y + h), (255, 0, 0), 2)
-    cv2.imshow('result', img)
+        cv2.rectangle(img_rotate_180 , (x, y), (x + w, y + h), (255, 0, 0), 2)
+    cv2.imshow('result', img_rotate_180)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
